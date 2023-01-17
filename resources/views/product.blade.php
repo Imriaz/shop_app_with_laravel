@@ -10,9 +10,6 @@
 </head>
 <body>
    <?= $product; ?>
-    <h1>Products Details</h1>
-
-    
 
       <a href="/">Back to the homepage</a>
     

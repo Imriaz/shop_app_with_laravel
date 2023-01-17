@@ -14,15 +14,17 @@ use App\Models\Product;
 */
 
 Route::get('/', function () {
-    return view('products');
+    $products = Product::all();
+    return view('products', [
+        'products' => $products
+    ]);
 });
 
 Route::get('/products/{product}', function ($slug) {
 //find a post by it's slug and pass it to the view called "product"
 
-    $product = Product::find($slug);
     return view('product', [
-        'product' => $product
+        'product' => Product::find($slug)
     ]);
 
     // $path = __DIR__ . "/../resources/products/{$slug}.html";
