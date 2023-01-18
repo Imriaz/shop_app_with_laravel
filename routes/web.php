@@ -20,12 +20,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/products/{product}', function ($id) {
-//find a post by it's slug and pass it to the view called "product"
-
+Route::get('/products/{product:title}', function (Product $product) {
     return view('product', [
-        'product' => Product::find($id)
+        'product' => $product
     ]);
+})->where('path', "[A-z_0-9]+");
+
+// Route::get('/products/{product}', function ($id) {
+//     return view('product', [
+//         'product' => Product::find($id)
+//     ]);
 
     // $path = __DIR__ . "/../resources/products/{$slug}.html";
     // if(! file_exists($path)){
@@ -43,4 +47,4 @@ Route::get('/products/{product}', function ($id) {
     // return view('product', [
     //     'product' => $product
     // ]);
-})->where('path', "[A-z_0-9]+");
+// })->where('path', "[A-z_0-9]+");

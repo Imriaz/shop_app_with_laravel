@@ -5,7 +5,7 @@
     <div class="card">
         <img src="/images/{{$product->title}}.jpg" alt="Book" style="width:10%">
         <div class="container">
-            <h1><a href="/products/{{$product->id}}">
+            <h1><a href="/products/{{$product->title}}">
                 {{$product->title}}</a></h1>
                 <p>
                     {{$product->author}}</p>
