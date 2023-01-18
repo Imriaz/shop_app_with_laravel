@@ -20,11 +20,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/products/{product}', function ($slug) {
+Route::get('/products/{product}', function ($id) {
 //find a post by it's slug and pass it to the view called "product"
 
     return view('product', [
-        'product' => Product::find($slug)
+        'product' => Product::find($id)
     ]);
 
     // $path = __DIR__ . "/../resources/products/{$slug}.html";
