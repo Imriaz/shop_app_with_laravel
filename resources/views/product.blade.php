@@ -20,7 +20,7 @@
                         {{$product->price}} ৳</h3>
         </div>
       </div> 
-   <?= $product; ?>
+   {{-- <?= $product; ?> --}}
 
       <a href="/">Back to the homepage</a>
     

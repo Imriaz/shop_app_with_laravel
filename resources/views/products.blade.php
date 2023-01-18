@@ -11,6 +11,8 @@
                     {{$product->author}}</p>
                     <h3>
                         {{$product->price}} ৳</h3>
+
+                        <h5>Category: <a href="/categories/{{$product->category->name}}"> {{$product->category->name}}</a> </h5>
         </div>
       </div> 
     

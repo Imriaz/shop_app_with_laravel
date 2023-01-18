@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,12 @@ Route::get('/products/{product:title}', function (Product $product) {
         'product' => $product
     ]);
 })->where('path', "[A-z_0-9]+");
+
+Route::get('/categories/{category:name}', function (Category $category) {
+    return view('products', [
+        'products' => $category->products
+    ]);
+} );
 
 // Route::get('/products/{product}', function ($id) {
 //     return view('product', [
