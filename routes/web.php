@@ -15,7 +15,7 @@ use App\Models\Category;
 */
 
 Route::get('/', function () {
-    $products = Product::all();
+    $products = Product::with('category')->get();
     return view('products', [
         'products' => $products
     ]);
