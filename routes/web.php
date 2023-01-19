@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 /*
@@ -15,7 +16,7 @@ use App\Models\Category;
 */
 
 Route::get('/', function () {
-    $products = Product::with('category','user')->get();
+    $products = Product::with('category','publisher')->get();
     return view('products', [
         'products' => $products
     ]);
@@ -29,7 +30,14 @@ Route::get('/products/{product:title}', function (Product $product) {
 
 Route::get('/categories/{category:name}', function (Category $category) {
     return view('products', [
-        'products' => $category->products
+        'products' => $category->products->load(['category', 'publisher'])
+    ]);
+} );
+
+Route::get('/publisher/{publisher:name}', function (User $publisher) {
+
+    return view('products', [
+        'products' => $publisher->products
     ]);
 } );
 

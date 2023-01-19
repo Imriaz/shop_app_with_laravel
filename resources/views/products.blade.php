@@ -12,7 +12,7 @@
                     <h3>
                         {{$product->price}} ৳</h3>
 
-                        <h4>Publish by: <a href='#'>{{$product->user->name}}</a></h4><h5>Category: <a href="/categories/{{$product->category->name}}"> {{$product->category->name}}</a> </h5>
+                        <h4>Publish by: <a href='publisher/{{$product->publisher->name}}'>{{$product->publisher->name}}</a></h4><h5>Category: <a href="/categories/{{$product->category->name}}"> {{$product->category->name}}</a> </h5>
         </div>
       </div> 
     

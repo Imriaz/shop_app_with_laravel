@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         Product::truncate();
 
+        // Product::factory()->create();
+
         $user1 = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
