@@ -17,7 +17,11 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => $this -> faker -> User::factory(),
+            'category_id' => $this -> faker -> Category::factory(),
             'title' => $this -> faker->sentence,
+            'author' => $this -> faker->name,
+            'price' => $this -> faker->randomNumber,
         ];
     }
 }
