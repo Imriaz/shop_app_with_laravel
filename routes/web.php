@@ -16,7 +16,7 @@ use App\Models\Category;
 */
 
 Route::get('/', function () {
-    $products = Product::with('category','publisher')->get();
+    $products = Product::get();
     return view('products', [
         'products' => $products
     ]);
@@ -30,7 +30,7 @@ Route::get('/products/{product:title}', function (Product $product) {
 
 Route::get('/categories/{category:name}', function (Category $category) {
     return view('products', [
-        'products' => $category->products->load(['category', 'publisher'])
+        'products' => $category->products
     ]);
 } );
 
