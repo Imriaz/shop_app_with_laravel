@@ -19,6 +19,7 @@
     {{-- <?= $product; ?> --}}
 </div>
 <?php endforeach; ?> 
+<x-newcard />
 @endsection
 
     
