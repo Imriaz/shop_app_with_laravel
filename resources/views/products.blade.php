@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+@include  ('product-header')
 <?php foreach ($products as $product): ?>
 <div>
     <div class="card">
