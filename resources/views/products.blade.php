@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
 @include  ('product-header')
+
+@if ($products -> count())
 <?php foreach ($products as $product): ?>
 <div>
     <x-product-card :product="$product"/>
@@ -20,6 +22,9 @@
 
 </div>
 <?php endforeach; ?> 
+@else 
+<h3>No products found </h3>
+@endif
 <x-newcard />
 @endsection
 
