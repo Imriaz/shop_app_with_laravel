@@ -8,5 +8,17 @@
 </head>
 <body>
     <h2>Welcome to Online Shop</h2>
+    <div class="category">
+        <select name="category" id="" onchange={handleOnChange(event)}>
+            @foreach ($categories as $category)
+            <option value={{$category->name}}>{{$category->name}}</option></a>
+            @endforeach
+        </select>
+    </div>
 </body>
+<script>
+    const handleOnChange = (event) =>{
+        console.log(event.target.value)
+    }
+</script>
 </html>

@@ -18,7 +18,8 @@ use App\Models\Category;
 Route::get('/', function () {
     $products = Product::get();
     return view('products', [
-        'products' => $products
+        'products' => $products,
+        'categories' => Category::all(),
     ]);
 });
 
