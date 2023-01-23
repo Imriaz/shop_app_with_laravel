@@ -18,7 +18,7 @@
 
     <div class="search-box">
         <form action="#" method="GET">
-<input type="text" name="search" placeholder="Search Something">
+<input type="text" name="search" placeholder="Search Something" value="{{request("search")}}">
         </form>
     </div>
 </body>
