@@ -19,7 +19,8 @@ Route::get('/', function () {
     $products = Product::latest();
 
     if(request("search")) {
-        $products-> where('title', 'like', '%' . request('search') . '%');
+        $products-> where('title', 'like', '%' . request('search') . '%')
+        -> orWhere('author', 'like', '%' . request('search') . '%');
     }
     
     return view('products', [
