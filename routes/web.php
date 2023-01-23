@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,19 +17,7 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    $products = Product::latest();
-
-    if(request("search")) {
-        $products-> where('title', 'like', '%' . request('search') . '%')
-        -> orWhere('author', 'like', '%' . request('search') . '%');
-    }
-    
-    return view('products', [
-        'products' => $products->get(),
-        'categories' => Category::all(),
-    ]);
-});
+Route::get('/', [ProductController::class, "index"]);
 
 Route::get('/products/{product:title}', function (Product $product) {
     return view('product', [
