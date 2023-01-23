@@ -23,7 +23,7 @@
 </div>
 <?php endforeach; ?> 
 @else 
-<h3>No products found </h3>
+<h3 style="color:blue;">No products found </h3>
 @endif
 <x-newcard />
 @endsection

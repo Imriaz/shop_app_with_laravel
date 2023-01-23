@@ -17,28 +17,41 @@ use App\Models\Category;
 
 Route::get('/', function () {
     $products = Product::get();
+    // $products = Product::latest();
+
+    if(request("search")) {
+        $products-> where('title', 'like', '%' . request('search') . '%');
+    }
+    
     return view('products', [
         'products' => $products,
+        // 'products' => $products->get(),
         'categories' => Category::all(),
     ]);
 });
 
 Route::get('/products/{product:title}', function (Product $product) {
     return view('product', [
-        'product' => $product
+        'product' => $product,
+        'categories' => Category::all(),
+
     ]);
 })->where('path', "[A-z_0-9]+");
 
 Route::get('/categories/{category:name}', function (Category $category) {
     return view('products', [
-        'products' => $category->products
+        'products' => $category->products,
+        'categories' => Category::all(),
+
     ]);
 } );
 
 Route::get('/publisher/{publisher:name}', function (User $publisher) {
 
     return view('products', [
-        'products' => $publisher->products
+        'products' => $publisher->products,
+        'categories' => Category::all(),
+
     ]);
 } );
 

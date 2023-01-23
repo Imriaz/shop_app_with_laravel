@@ -15,6 +15,12 @@
             @endforeach
         </select>
     </div>
+
+    <div class="search-box">
+        <form action="#" method="GET">
+<input type="text" name="search" placeholder="Search Something">
+        </form>
+    </div>
 </body>
 <script>
     const handleOnChange = (event) =>{
